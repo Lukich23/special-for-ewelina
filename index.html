@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet">
+  <title>Document</title>
+</head>
+<body>
+	<div id="wrapper">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>	
+	<h2 id="text-instruction">Kliknij na serduszko</h2>
+  
+<div class="container">
+
+	<div class="back">
+
+		<div class="topTriangle">
+			
+		</div>
+
+	</div>
+
+	<div class="card" onclick="play()">
+		<div class="heart">♥ </div>
+		<div class="desc">
+Jestem szczęśliwy, że spotkałem Cię w swoim życiu</div> 
+	</div>
+
+<div class="front_container">
+	
+	<div class="front" onclick="pause()">
+		
+	</div>
+
+</div>
+	
+</div>
+
+
+<audio id="audio" src="music/lovely.mp3"></audio>
+
+
+<script>
+  function play() {
+    var audio = document.getElementById("audio");
+    audio.play();
+    var element = document.getElementById('wrapper');
+        var children = element.children;
+        for(var i=0; i<children.length; i++){
+            var child = children[i];
+            child.classList.add("firefly");
+        }
+    var bodyTag = document.getElementsByTagName('body')[0];
+    bodyTag.classList.add('background');
+    var title = document.getElementById('text-instruction');
+    title.style.color = "#FFFFFF"; 
+    title.textContent = "Żeby wyłączyć, kliknij na list";
+  }
+
+  function pause() {
+    var audio = document.getElementById("audio");
+    audio.pause();
+    var element = document.getElementById('wrapper');
+        var children = element.children;
+        for(var i=0; i<children.length; i++){
+            var child = children[i];
+            child.classList.remove("firefly"); 
+        }
+    var bodyTag = document.getElementsByTagName('body')[0];
+    bodyTag.classList.remove('background');
+    var title = document.getElementById('text-instruction');
+    title.style.color = "#000000"; 
+    title.textContent = "Kliknij na serduszko";
+  }
+</script>
+</body>
+</html>
